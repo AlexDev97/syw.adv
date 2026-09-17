@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>syw.adv — Start Your Sdn. Bhd. Online</title>
+  <meta name="description" content="Start and manage your Malaysian Sdn. Bhd. with modern incorporation, company secretary, accounting and tax support." />
+  <style>
+    :root{
+      --mint:#FFF8EC;
+      --mint-2:#F7E6C6;
+      --mint-3:#E9A23B;
+      --pink:#E9A23B;
+      --pink-dark:#C57916;
+      --yellow:#F4C766;
+      --navy:#12233F;
+      --ink:#1B2738;
+      --muted:#6D7480;
+      --white:#ffffff;
+      --line:#E1D2B8;
+      --soft:#FBF6EC;
+      --shadow:0 18px 60px rgba(18,35,63,.10);
+      --radius:26px;
+      --max:1180px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      color:var(--ink);
+      background:#fff;
+      line-height:1.55;
+      overflow-x:hidden;
+    }
+    a{color:inherit;text-decoration:none}
+    button,input,select{font:inherit}
+    .wrap{width:min(calc(100% - 40px),var(--max));margin:auto}
+
+    header{
+      position:sticky;top:0;z-index:50;
+      background:rgba(255,255,255,.94);
+      backdrop-filter:blur(16px);
+      border-bottom:1px solid rgba(18,35,63,.08);
+    }
+    .nav{
+      min-height:74px;
+      display:flex;align-items:center;justify-content:space-between;gap:24px
+    }
+    .brand{
+      font-size:23px;font-weight:900;letter-spacing:-.055em;color:var(--navy)
+    }
+    .brand .dot{color:var(--pink)}
+    .nav-links{display:flex;gap:26px;font-size:14px;font-weight:650;color:#4B5668}
+    .nav-links a:hover{color:var(--pink-dark)}
+    .actions{display:flex;gap:12px;align-items:center}
+    .lang-menu{position:relative}
+    .lang-trigger{
+      min-width:72px;height:46px;padding:0 14px;
+      border:1px solid #E4D8C5;border-radius:999px;background:#fff;
+      color:var(--navy);display:inline-flex;align-items:center;justify-content:center;
+      gap:7px;font-weight:800;font-size:14px;cursor:pointer;
+      transition:.18s ease;box-shadow:0 3px 12px rgba(18,35,63,.05)
+    }
+    .lang-trigger:hover{border-color:#CDBA98;background:#FFFBF3}
+    .lang-trigger svg{width:15px;height:15px;transition:transform .18s ease;color:#6C7481}
+    .lang-menu.open .lang-trigger svg{transform:rotate(180deg)}
+    .lang-options{
+      position:absolute;right:0;top:54px;min-width:112px;
+      background:#fff;border:1px solid #E9E0D3;border-radius:16px;
+      padding:6px;box-shadow:0 16px 34px rgba(18,35,63,.14);
+      opacity:0;visibility:hidden;transform:translateY(-4px);
+      transition:.16s ease;z-index:80
+    }
+    .lang-menu.open .lang-options{opacity:1;visibility:visible;transform:translateY(0)}
+    .lang-options button{
+      width:100%;border:0;background:transparent;border-radius:11px;
+      padding:9px 11px;text-align:left;color:var(--ink);
+      font-weight:700;font-size:13px;cursor:pointer
+    }
+    .lang-options button:hover{background:var(--mint)}
+
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:8px;
+      border:0;border-radius:999px;min-height:46px;padding:0 20px;
+      font-weight:800;cursor:pointer;transition:.2s ease;
+    }
+    .btn:hover{transform:translateY(-1px)}
+    .btn.pink{background:var(--pink);color:#fff;box-shadow:0 8px 20px rgba(233,162,59,.22)}
+    .btn.pink:hover{background:var(--pink-dark)}
+    .btn.dark{background:var(--navy);color:#fff}
+    .btn.ghost{background:#fff;color:var(--navy);border:1px solid #DCCFB9}
+    .btn.full{width:100%}
+
+    .hero{
+      background:var(--mint);
+      position:relative;overflow:hidden;
+      padding:74px 0 66px;
+      border-bottom:1px solid var(--line);
+    }
+    .bubble{
+      position:absolute;border-radius:36px;transform:rotate(8deg);
+      border:2px solid rgba(233,162,59,.42)
+    }
+    .bubble.one{width:330px;height:290px;right:-100px;top:80px;background:rgba(233,162,59,.90)}
+    .bubble.two{width:240px;height:200px;left:-135px;bottom:10px;background:rgba(255,248,236,.65);transform:rotate(-13deg)}
+
+    .hero-grid{
+      display:grid;grid-template-columns:1.08fr .92fr;gap:54px;align-items:center;position:relative;z-index:2
+    }
+    .micro{
+      display:inline-flex;align-items:center;gap:9px;
+      padding:7px 12px;border-radius:999px;
+      background:#fff;border:1px solid var(--line);
+      font-size:12px;font-weight:800;color:#8A5C16;
+      box-shadow:0 6px 16px rgba(18,35,63,.06)
+    }
+    .micro:before{content:"MY";background:var(--yellow);color:#4E3810;border-radius:999px;padding:2px 6px;font-size:10px}
+    h1{
+      font-size:clamp(50px,6.6vw,86px);
+      line-height:.96;letter-spacing:-.06em;
+      margin:22px 0 24px;color:var(--navy)
+    }
+    .hero-copy{
+      font-size:19px;color:#626B77;max-width:690px;margin:0 0 28px
+    }
+    .hero-highlights{
+      display:flex;flex-wrap:wrap;gap:16px 22px;
+      margin-top:24px;font-size:13px;font-weight:700;color:#626A73
+    }
+    .hero-highlights span:before{content:"✓";color:#C77D17;font-weight:900;margin-right:7px}
+
+    .checker-card{
+      background:#fff;border:1.5px solid #DFC48F;border-radius:30px;
+      padding:28px;box-shadow:var(--shadow);position:relative
+    }
+    .checker-card:before{
+      content:"";position:absolute;inset:-10px 12px 10px -10px;border:2px solid var(--pink);
+      border-radius:32px;z-index:-1
+    }
+    .checker-top{display:flex;justify-content:space-between;gap:20px;align-items:flex-start;margin-bottom:22px}
+    .checker-top h3{font-size:27px;line-height:1.05;margin:0;color:var(--navy);letter-spacing:-.04em}
+    .online-badge{
+      background:#FFF3D8;color:#825714;border:1px solid #E7D2A5;border-radius:999px;
+      padding:6px 9px;font-size:11px;font-weight:800;white-space:nowrap
+    }
+    .tabs{
+      display:grid;grid-template-columns:1fr 1fr;background:#F5EFE5;border-radius:999px;padding:4px;margin-bottom:18px
+    }
+    .tab{
+      padding:10px;text-align:center;border-radius:999px;font-size:13px;font-weight:800;cursor:pointer
+    }
+    .tab.active{background:var(--mint-2);color:#805510;box-shadow:0 4px 10px rgba(139,92,22,.08)}
+    .input-wrap{
+      display:flex;gap:8px;padding:7px;border:1.5px solid #D8BC88;border-radius:18px;background:#FFFDF8
+    }
+    .input-wrap input{
+      flex:1;min-width:0;border:0;outline:none;background:transparent;padding:10px 11px;font-size:15px;color:var(--ink)
+    }
+    .input-wrap .btn{min-height:42px;padding:0 18px}
+    .checker-note{font-size:11px;color:#84878D;margin:10px 3px 0}
+    .result{
+      display:none;margin-top:14px;padding:13px 14px;border-radius:15px;
+      background:#FFF6E4;color:#73541D;font-size:13px;font-weight:700;border:1px solid #E4CFA5
+    }
+    .mini-proof{
+      margin-top:20px;padding-top:18px;border-top:1px solid #ECE4D8;
+      display:grid;grid-template-columns:1fr 1fr;gap:12px
+    }
+    .proof-box{background:#FFFAF1;border-radius:14px;padding:12px}
+    .proof-box b{display:block;font-size:19px;color:var(--navy);letter-spacing:-.03em}
+    .proof-box span{font-size:11px;color:#7A8088}
+
+    .trust{
+      padding:24px 0;background:#fff;border-bottom:1px solid #EEE8DE
+    }
+    .trust-row{display:flex;justify-content:center;align-items:center;gap:14px 30px;flex-wrap:wrap}
+    .trust-row span{font-size:12px;color:#767D87;font-weight:700}
+    .logo-pill{
+      border:1px solid #E8DFD1;border-radius:11px;padding:9px 14px;color:#4D5867!important;background:#fff;font-weight:850!important
+    }
+
+    section.normal{padding:88px 0}
+    section.soft{padding:88px 0;background:var(--soft)}
+    .section-head{text-align:center;max-width:800px;margin:0 auto 42px}
+    .eyebrow{
+      font-size:12px;font-weight:900;letter-spacing:.13em;text-transform:uppercase;color:var(--pink-dark);
+      margin-bottom:10px
+    }
+    h2{
+      font-size:clamp(38px,5vw,64px);line-height:1.02;letter-spacing:-.05em;
+      margin:0;color:var(--navy)
+    }
+    .section-head p{font-size:17px;color:var(--muted);margin:16px auto 0;max-width:680px}
+
+    .price-card{
+      background:var(--mint);border:2px solid #DABF89;border-radius:32px;
+      display:grid;grid-template-columns:.9fr 1.1fr;overflow:hidden;box-shadow:var(--shadow)
+    }
+    .price-main{padding:46px;border-right:1px solid #9ddbc9}
+    .price-main .tag{
+      display:inline-flex;background:var(--yellow);padding:6px 10px;border-radius:999px;
+      font-size:11px;font-weight:900;color:#4F3910
+    }
+    .price-main h3{font-size:34px;letter-spacing:-.045em;margin:20px 0 4px;color:var(--navy)}
+    .price{font-size:64px;font-weight:900;letter-spacing:-.06em;color:var(--pink);line-height:1}
+    .price small{font-size:16px;color:#73767B;font-weight:700;letter-spacing:0}
+    .price-main p{color:#626B76;max-width:420px}
+    .price-features{
+      background:#fff;padding:34px 38px;display:grid;grid-template-columns:1fr 1fr;gap:15px
+    }
+    .feature{
+      background:#FFFAF1;border:1px solid #E9DFCF;border-radius:18px;padding:18px
+    }
+    .icon{
+      width:40px;height:40px;border-radius:13px;background:var(--mint-2);
+      display:grid;place-items:center;font-size:19px;margin-bottom:14px
+    }
+    .feature strong{display:block;color:var(--navy);font-size:15px;margin-bottom:4px}
+    .feature span{font-size:12px;color:#7A8088}
+
+    .benefits{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+    .benefit{
+      border:1px solid #E9E0D3;border-radius:23px;padding:24px;background:#fff;min-height:245px;
+      transition:.2s ease
+    }
+    .benefit:hover{transform:translateY(-3px);box-shadow:0 16px 38px rgba(18,35,63,.08)}
+    .benefit:nth-child(2),.benefit:nth-child(4){background:#fff4f9;border-color:#F1DDB8}
+    .benefit .icon{margin-bottom:48px}
+    .benefit h3{font-size:20px;letter-spacing:-.03em;color:var(--navy);margin:0 0 8px}
+    .benefit p{font-size:13px;color:var(--muted);margin:0}
+
+    .steps{
+      display:grid;grid-template-columns:repeat(3,1fr);gap:18px;position:relative
+    }
+    .step{
+      border-radius:27px;padding:27px;background:#fff;border:1px solid #E8DED0;min-height:310px;
+      display:flex;flex-direction:column
+    }
+    .step:nth-child(2){background:var(--mint)}
+    .step:nth-child(3){background:#fff4f9}
+    .step-no{
+      width:46px;height:46px;border-radius:50%;display:grid;place-items:center;
+      background:var(--navy);color:#fff;font-weight:900;font-size:13px
+    }
+    .step-visual{
+      height:95px;margin:28px 0 20px;border-radius:18px;background:#F8F1E5;position:relative;overflow:hidden
+    }
+    .step:nth-child(2) .step-visual{background:#fff}
+    .step:nth-child(3) .step-visual{background:#fff}
+    .doc{
+      position:absolute;width:88px;height:65px;background:#fff;border:2px solid #D0A65C;border-radius:10px;
+      left:50%;top:50%;transform:translate(-50%,-50%) rotate(-4deg)
+    }
+    .doc:before,.doc:after{content:"";position:absolute;left:12px;height:5px;border-radius:5px;background:#EEE0C7}
+    .doc:before{width:58px;top:16px}.doc:after{width:40px;top:30px}
+    .step h3{font-size:21px;color:var(--navy);letter-spacing:-.03em;margin:0 0 8px}
+    .step p{font-size:13px;color:var(--muted);margin:0}
+
+    .service-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .service-card{
+      border:1px solid #E9E0D3;border-radius:26px;padding:27px;background:#fff;
+      display:flex;flex-direction:column;min-height:380px
+    }
+    .service-card.featured{background:var(--navy);color:#fff;border-color:var(--navy)}
+    .service-card .service-label{font-size:11px;font-weight:900;letter-spacing:.09em;color:var(--pink-dark)}
+    .service-card.featured .service-label{color:#8ce2c9}
+    .service-card h3{font-size:27px;line-height:1.05;letter-spacing:-.04em;color:var(--navy);margin:18px 0 9px}
+    .service-card.featured h3{color:#fff}
+    .service-card p{font-size:13px;color:var(--muted);margin:0 0 22px}
+    .service-card.featured p{color:#C9D0DA}
+    .check-list{display:grid;gap:11px;margin-top:auto;padding-top:16px}
+    .check{font-size:13px;color:#57616D}
+    .featured .check{color:#DCE3EC}
+    .check:before{content:"✓";font-weight:900;color:#D18A22;margin-right:8px}
+    .featured .check:before{color:#8ce2c9}
+
+    .local-strip{
+      margin-top:26px;background:var(--yellow);border-radius:26px;padding:26px 30px;
+      display:flex;justify-content:space-between;align-items:center;gap:25px;flex-wrap:wrap
+    }
+    .local-strip strong{font-size:22px;color:#443312;letter-spacing:-.03em}
+    .local-strip span{font-size:13px;color:#6B5220}
+
+    .faq{max-width:900px;margin:auto;border-top:1px solid #dfe7e4}
+    details{border-bottom:1px solid #dfe7e4;padding:21px 0}
+    summary{font-size:18px;font-weight:800;color:var(--navy);cursor:pointer;list-style:none}
+    summary::-webkit-details-marker{display:none}
+    details p{color:var(--muted);font-size:14px;max-width:760px}
+
+    .cta-section{
+      background:var(--mint);padding:82px 0;position:relative;overflow:hidden
+    }
+    .cta-box{
+      max-width:940px;margin:auto;text-align:center;position:relative;z-index:2
+    }
+    .cta-box h2{margin-bottom:18px}
+    .cta-box p{font-size:17px;color:var(--muted);max-width:650px;margin:0 auto 26px}
+    .cta-actions{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+
+    footer{background:var(--navy);color:#CAD3DC;padding:45px 0}
+    .footer-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:30px}
+    .footer-brand{font-size:27px;font-weight:900;color:#fff;letter-spacing:-.05em}
+    .footer-brand .dot{color:var(--pink)}
+    .footer-grid p{font-size:13px;color:#9EABB9;max-width:520px}
+    .footer-links{display:flex;justify-content:flex-end;gap:20px;flex-wrap:wrap;font-size:13px}
+    .copyright{border-top:1px solid rgba(255,255,255,.10);margin-top:28px;padding-top:20px;font-size:12px;color:#7F8D9D}
+
+    @media(max-width:940px){
+      .nav-links{display:none}
+      .hero-grid,.price-card,.footer-grid{grid-template-columns:1fr}
+      .price-main{border-right:0;border-bottom:1px solid #9ddbc9}
+      .benefits{grid-template-columns:1fr 1fr}
+      .service-grid{grid-template-columns:1fr}
+      .steps{grid-template-columns:1fr}
+      .footer-links{justify-content:flex-start}
+    }
+    @media(max-width:620px){
+      .wrap{width:min(calc(100% - 24px),var(--max))}
+      .actions .btn{display:none}
+      .hero{padding:54px 0}
+      h1{font-size:49px}
+      .hero-copy{font-size:16px}
+      .checker-card{padding:20px}
+      .checker-card:before{display:none}
+      .input-wrap{display:block}
+      .input-wrap .btn{width:100%;margin-top:7px}
+      .mini-proof{grid-template-columns:1fr}
+      .price-main{padding:30px}
+      .price-features{grid-template-columns:1fr;padding:24px}
+      .benefits{grid-template-columns:1fr}
+      section.normal,section.soft{padding:68px 0}
+      .price{font-size:54px}
+    }
+  
+    /* =========================================================
+       syw.adv palette override
+       Same V2 design — Deep Navy + Amber + Cream only
+       ========================================================= */
+    :root{
+      --mint:#FFF8EC;
+      --mint-2:#F7E6C6;
+      --mint-3:#E9A23B;
+      --pink:#E9A23B;
+      --pink-dark:#C57916;
+      --yellow:#F4C766;
+      --navy:#12233F;
+      --ink:#1B2738;
+      --muted:#6D7480;
+      --white:#FFFFFF;
+      --line:#E1D2B8;
+      --soft:#FBF6EC;
+      --shadow:0 18px 60px rgba(18,35,63,.11);
+    }
+
+    /* Hero becomes the strongest Deep Navy brand moment */
+    .hero{
+      background:var(--navy);
+      border-bottom-color:rgba(233,162,59,.30);
+    }
+    .hero h1{color:#FFF8EC}
+    .hero-copy{color:#D8DFE9}
+    .hero-highlights{color:#F3EBDD}
+    .hero-highlights span:before{color:var(--amber,#E9A23B)}
+
+    .micro{
+      background:var(--amber,#E9A23B);
+      border-color:var(--amber,#E9A23B);
+      color:var(--navy);
+      box-shadow:0 8px 22px rgba(0,0,0,.10);
+    }
+    .micro:before{
+      background:#FFF8EC;
+      color:var(--navy);
+    }
+
+    .bubble{
+      border-color:rgba(233,162,59,.45);
+    }
+    .bubble.one{
+      background:rgba(233,162,59,.94);
+    }
+    .bubble.two{
+      background:rgba(255,248,236,.14);
+      border-color:rgba(255,248,236,.25);
+    }
+
+    /* Amber replaces the previous pink CTA language */
+    .btn.pink{
+      background:#E9A23B;
+      color:#12233F;
+      box-shadow:0 8px 20px rgba(233,162,59,.22);
+    }
+    .btn.pink:hover{background:#D98F25}
+
+    /* Header + language component */
+    .brand .dot{color:#E9A23B}
+    .nav-links a:hover{color:#C57916}
+    .lang-trigger{
+      border-color:#DED2BE;
+      background:#FFFDFA;
+      color:#12233F;
+    }
+    .lang-trigger:hover{
+      border-color:#CEB98E;
+      background:#FFF8EC;
+    }
+    .lang-options{
+      border-color:#E7DDCD;
+      background:#FFFDFA;
+    }
+    .lang-options button:hover{background:#FFF3DB}
+
+    /* Company-name checker */
+    .checker-card{
+      border-color:#D8BA7B;
+      background:#FFFDF9;
+    }
+    .checker-card:before{
+      border-color:#E9A23B;
+    }
+    .online-badge{
+      background:#FFF2D2;
+      color:#795111;
+      border-color:#E8CA90;
+    }
+    .tabs{background:#F5EFE4}
+    .tab.active{
+      background:#F6E2BC;
+      color:#6F4C13;
+      box-shadow:0 4px 10px rgba(126,85,18,.08);
+    }
+    .input-wrap{
+      border-color:#D8BC88;
+      background:#FFFCF7;
+    }
+    .result{
+      background:#FFF5E1;
+      color:#70501C;
+      border-color:#E5CD9E;
+    }
+    .proof-box{background:#FFFAF2}
+
+    /* Trust strip */
+    .trust{background:#FFFDF9;border-bottom-color:#EEE6DA}
+    .logo-pill{
+      border-color:#E7DED0;
+      background:#FFFDF9;
+      color:#475366!important;
+    }
+
+    /* Cream content rhythm */
+    section.soft{background:#FBF6EC}
+    .eyebrow{color:#B56D0D}
+
+    /* Main pricing card */
+    .price-card{
+      background:#FFF8EC;
+      border-color:#DDBA78;
+    }
+    .price-main{border-right-color:#DEC38F}
+    .price-main .tag{
+      background:#F4C766;
+      color:#49340F;
+    }
+    .price{color:#C57916}
+    .price-features{background:#FFFDF9}
+    .feature{
+      background:#FFFAF2;
+      border-color:#E9DFCF;
+    }
+    .icon{background:#F5E2BE}
+
+    /* Benefits keep the same alternating-card design, only recolored */
+    .benefit{
+      border-color:#E7DED1;
+      background:#FFFDF9;
+    }
+    .benefit:nth-child(2),
+    .benefit:nth-child(4){
+      background:#FFF3DA;
+      border-color:#EFD7A7;
+    }
+
+    /* Steps preserve the same shapes and hierarchy */
+    .step{border-color:#E7DED1;background:#FFFDF9}
+    .step:nth-child(2){background:#FFF8EC}
+    .step:nth-child(3){background:#FFF1D3}
+    .step-visual{background:#F8F1E5}
+    .doc{
+      border-color:#D0A65C;
+      background:#FFFDF9;
+    }
+    .doc:before,.doc:after{background:#EEE0C7}
+
+    /* Service section */
+    .service-card{
+      border-color:#E7DED1;
+      background:#FFFDF9;
+    }
+    .service-card.featured{
+      background:#12233F;
+      border-color:#12233F;
+    }
+    .service-card .service-label{color:#B56D0D}
+    .service-card.featured .service-label{color:#F4C766}
+    .service-card.featured p{color:#C9D2DE}
+    .check:before{color:#C98520}
+    .featured .check:before{color:#F4C766}
+
+    .local-strip{
+      background:#E9A23B;
+    }
+    .local-strip strong{color:#12233F}
+    .local-strip span{color:#51401F}
+
+    /* Final CTA becomes a second strong Deep Navy block */
+    .cta-section{
+      background:#12233F;
+    }
+    .cta-section .eyebrow{color:#E9A23B}
+    .cta-section h2{color:#FFF8EC}
+    .cta-box p{color:#C9D2DE}
+    .cta-section .btn.ghost{
+      background:#FFF8EC;
+      color:#12233F;
+      border-color:#FFF8EC;
+    }
+    .cta-section .bubble.one{
+      background:rgba(233,162,59,.22)!important;
+      border-color:rgba(233,162,59,.34);
+    }
+
+    /* Footer remains Deep Navy, now with Amber brand accent */
+    footer{background:#0E1E35}
+    .footer-brand .dot{color:#E9A23B}
+
+  </style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#">syw<span class="dot">.</span>adv</a>
+    <nav class="nav-links">
+      <a href="#services" data-i18n="nav_services">Services</a>
+      <a href="#pricing" data-i18n="nav_pricing">Pricing</a>
+      <a href="#process" data-i18n="nav_process">How It Works</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="actions">
+      <div class="lang-menu" id="langMenu">
+        <button class="lang-trigger" id="langTrigger" type="button" aria-haspopup="true" aria-expanded="false">
+          <span id="langLabel">EN</span>
+          <svg viewBox="0 0 20 20" aria-hidden="true">
+            <path d="M6 8l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <div class="lang-options" id="langOptions" role="menu">
+          <button type="button" data-lang="en" role="menuitem">EN</button>
+          <button type="button" data-lang="zh" role="menuitem">中文</button>
+          <button type="button" data-lang="bm" role="menuitem">BM</button>
+        </div>
+      </div>
+      <a class="btn pink" href="#contact" data-i18n="nav_cta">Get Started</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="bubble one"></div>
+    <div class="bubble two"></div>
+    <div class="wrap hero-grid">
+      <div>
+        <div class="micro" data-i18n="micro">Made for Malaysian founders</div>
+        <h1 data-i18n="hero_title">Start your Sdn. Bhd. online — without the headache.</h1>
+        <p class="hero-copy" data-i18n="hero_desc">From company incorporation to company secretary, accounting and tax support. Simple steps, human guidance and a process built for Malaysian SMEs.</p>
+        <div class="hero-actions">
+          <a class="btn pink" href="#pricing" data-i18n="hero_primary">Start My Company</a>
+          <a class="btn ghost" href="https://wa.me/60123456789" target="_blank" data-i18n="hero_secondary">WhatsApp Us</a>
+        </div>
+        <div class="hero-highlights">
+          <span data-i18n="h1">100% online friendly</span>
+          <span data-i18n="h2">Malaysia-focused</span>
+          <span data-i18n="h3">EN · 中文 · BM</span>
+        </div>
+      </div>
+
+      <aside class="checker-card">
+        <div class="checker-top">
+          <div>
+            <h3 data-i18n="check_title">Check your company name</h3>
+          </div>
+          <div class="online-badge" data-i18n="online_badge">FREE CHECK</div>
+        </div>
+        <div class="tabs">
+          <div class="tab active" data-i18n="tab_new">New Company</div>
+          <div class="tab" data-i18n="tab_existing">Existing Company</div>
+        </div>
+        <div class="input-wrap">
+          <input id="companyInput" type="text" placeholder="e.g. Lumina Labs" />
+          <button id="checkBtn" class="btn pink" data-i18n="check_btn">Check</button>
+        </div>
+        <div id="result" class="result"></div>
+        <div class="checker-note" data-i18n="check_note">Demo checker only. Final company-name approval is subject to SSM.</div>
+
+        <div class="mini-proof">
+          <div class="proof-box">
+            <b data-i18n="proof1_big">Fast</b>
+            <span data-i18n="proof1_small">digital onboarding</span>
+          </div>
+          <div class="proof-box">
+            <b>WhatsApp</b>
+            <span data-i18n="proof2_small">easy local support</span>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <div class="trust">
+    <div class="wrap trust-row">
+      <span data-i18n="trust_title">Built for modern Malaysian businesses</span>
+      <span class="logo-pill">SSM-ready flow</span>
+      <span class="logo-pill">Digital-first</span>
+      <span class="logo-pill">SME friendly</span>
+      <span class="logo-pill">Local support</span>
+    </div>
+  </div>
+
+  <section class="normal" id="pricing">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow" data-i18n="price_eyebrow">Simple starting point</div>
+        <h2 data-i18n="price_title">Everything you need to get your Sdn. Bhd. moving.</h2>
+        <p data-i18n="price_desc">Clear scope, practical support and fewer surprises. Pricing below is demo content and can be replaced with your final package.</p>
+      </div>
+
+      <div class="price-card">
+        <div class="price-main">
+          <span class="tag" data-i18n="demo_price">DEMO PACKAGE</span>
+          <h3 data-i18n="package_title">Sdn. Bhd. Starter</h3>
+          <div class="price">RM1,888 <small data-i18n="one_time">demo</small></div>
+          <p data-i18n="package_desc">A straightforward incorporation package for Malaysian founders who want to get started without unnecessary complexity.</p>
+          <a class="btn pink" href="#contact" data-i18n="package_cta">Start My Business</a>
+        </div>
+
+        <div class="price-features">
+          <div class="feature"><div class="icon">✓</div><strong data-i18n="pf1_t">Name & incorporation guidance</strong><span data-i18n="pf1_d">Guided information and document preparation.</span></div>
+          <div class="feature"><div class="icon">MY</div><strong data-i18n="pf2_t">Malaysia company setup</strong><span data-i18n="pf2_d">Designed around local Sdn. Bhd. requirements.</span></div>
+          <div class="feature"><div class="icon">✍</div><strong data-i18n="pf3_t">Digital-first process</strong><span data-i18n="pf3_d">Keep paperwork and follow-up simpler.</span></div>
+          <div class="feature"><div class="icon">☏</div><strong data-i18n="pf4_t">Responsive support</strong><span data-i18n="pf4_d">Easy follow-up through familiar channels.</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="soft">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow" data-i18n="why_eyebrow">Why founders choose us</div>
+        <h2 data-i18n="why_title">Corporate services that feel more like a modern product.</h2>
+      </div>
+
+      <div class="benefits">
+        <div class="benefit">
+          <div class="icon">⌁</div>
+          <h3 data-i18n="b1_t">100% Online Friendly</h3>
+          <p data-i18n="b1_d">Handle onboarding and most follow-up remotely without unnecessary trips or paperwork.</p>
+        </div>
+        <div class="benefit">
+          <div class="icon">☏</div>
+          <h3 data-i18n="b2_t">WhatsApp Support</h3>
+          <p data-i18n="b2_d">Ask questions through a channel Malaysian founders already use every day.</p>
+        </div>
+        <div class="benefit">
+          <div class="icon">✍</div>
+          <h3 data-i18n="b3_t">Digital Documents</h3>
+          <p data-i18n="b3_d">Keep the process clear and minimise printing, scanning and manual follow-up.</p>
+        </div>
+        <div class="benefit">
+          <div class="icon">MY</div>
+          <h3 data-i18n="b4_t">Malaysia Context</h3>
+          <p data-i18n="b4_d">Sdn. Bhd., SSM terminology and local SME needs are part of the experience from day one.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="normal" id="process">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow" data-i18n="process_eyebrow">3 easy steps</div>
+        <h2 data-i18n="process_title">From idea to registered company — made simpler.</h2>
+      </div>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step-no">01</div>
+          <div class="step-visual"><div class="doc"></div></div>
+          <h3 data-i18n="s1_t">Tell us about your business</h3>
+          <p data-i18n="s1_d">Fill in your proposed company name, business activity, director and shareholder details.</p>
+        </div>
+        <div class="step">
+          <div class="step-no">02</div>
+          <div class="step-visual"><div class="doc"></div></div>
+          <h3 data-i18n="s2_t">Review & complete documents</h3>
+          <p data-i18n="s2_d">We guide the documents and information needed so you always know what comes next.</p>
+        </div>
+        <div class="step">
+          <div class="step-no">03</div>
+          <div class="step-visual"><div class="doc"></div></div>
+          <h3 data-i18n="s3_t">We handle the submission</h3>
+          <p data-i18n="s3_d">Your incorporation proceeds through the relevant Malaysian registration process, with updates along the way.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="soft" id="services">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow" data-i18n="services_eyebrow">One place, more support</div>
+        <h2 data-i18n="services_title">Start the company. Then keep it running properly.</h2>
+      </div>
+
+      <div class="service-grid">
+        <article class="service-card">
+          <div class="service-label">START</div>
+          <h3 data-i18n="svc1_t">Register Sdn. Bhd.</h3>
+          <p data-i18n="svc1_d">A guided incorporation flow for founders starting a Malaysian private limited company.</p>
+          <div class="check-list">
+            <div class="check" data-i18n="svc1_a">Company information guidance</div>
+            <div class="check" data-i18n="svc1_b">Document preparation support</div>
+            <div class="check" data-i18n="svc1_c">Digital-first onboarding</div>
+          </div>
+        </article>
+
+        <article class="service-card featured">
+          <div class="service-label">COMPLY</div>
+          <h3 data-i18n="svc2_t">Company Secretary</h3>
+          <p data-i18n="svc2_d">Ongoing secretarial support for company records, recurring compliance and corporate actions.</p>
+          <div class="check-list">
+            <div class="check" data-i18n="svc2_a">Statutory records</div>
+            <div class="check" data-i18n="svc2_b">Resolutions & filings</div>
+            <div class="check" data-i18n="svc2_c">Ongoing compliance support</div>
+          </div>
+        </article>
+
+        <article class="service-card">
+          <div class="service-label">GROW</div>
+          <h3 data-i18n="svc3_t">Accounting & Tax</h3>
+          <p data-i18n="svc3_d">Practical finance support so you can spend less time on admin and more time growing the business.</p>
+          <div class="check-list">
+            <div class="check" data-i18n="svc3_a">Bookkeeping support</div>
+            <div class="check" data-i18n="svc3_b">Financial reporting</div>
+            <div class="check" data-i18n="svc3_c">Tax-related administration</div>
+          </div>
+        </article>
+      </div>
+
+      <div class="local-strip">
+        <div>
+          <strong data-i18n="local_title">Local support, in the languages you actually use.</strong><br/>
+          <span data-i18n="local_desc">English · 中文 · Bahasa Malaysia · WhatsApp-friendly</span>
+        </div>
+        <a class="btn dark" href="#contact" data-i18n="local_cta">Talk to Us</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="normal" id="faq">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">FAQ</div>
+        <h2 data-i18n="faq_title">Common questions before you start.</h2>
+      </div>
+      <div class="faq">
+        <details open>
+          <summary data-i18n="fq1">Can I register a Sdn. Bhd. online?</summary>
+          <p data-i18n="fa1">The service is designed around a digital-first workflow, with most onboarding, communication and document follow-up handled remotely where suitable.</p>
+        </details>
+        <details>
+          <summary data-i18n="fq2">Is the company-name checker connected to SSM?</summary>
+          <p data-i18n="fa2">Not in this demo. The checker is a front-end demonstration only. Final company-name availability and approval must follow the official SSM process.</p>
+        </details>
+        <details>
+          <summary data-i18n="fq3">Can you support my company after incorporation?</summary>
+          <p data-i18n="fa3">Yes. The proposed service model includes ongoing company-secretarial, accounting and tax-related support.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section" id="contact">
+    <div class="bubble one" style="right:-170px;top:-60px;opacity:.35"></div>
+    <div class="cta-box wrap">
+      <div class="eyebrow" data-i18n="cta_eyebrow">Start your business with syw.adv</div>
+      <h2 data-i18n="cta_title">Ready to turn the business idea into a Sdn. Bhd.?</h2>
+      <p data-i18n="cta_desc">Send us a message and we’ll guide you through what you need to prepare next.</p>
+      <div class="cta-actions">
+        <a class="btn pink" href="https://wa.me/60123456789" target="_blank" data-i18n="cta_whatsapp">WhatsApp Us</a>
+        <a class="btn ghost" href="mailto:hello@syw.adv">hello@syw.adv</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">syw<span class="dot">.</span>adv</div>
+        <p data-i18n="footer_desc">Modern company incorporation, company secretary, accounting and tax support for Malaysian businesses.</p>
+      </div>
+      <div class="footer-links">
+        <a href="#services" data-i18n="nav_services">Services</a>
+        <a href="#pricing" data-i18n="nav_pricing">Pricing</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact" data-i18n="nav_cta">Get Started</a>
+      </div>
+    </div>
+    <div class="copyright">© 2026 syw.adv · Demo landing page</div>
+  </div>
+</footer>
+
+<script>
+const dict={
+en:{
+nav_services:"Services",nav_pricing:"Pricing",nav_process:"How It Works",nav_cta:"Get Started",
+micro:"Made for Malaysian founders",hero_title:"Start your Sdn. Bhd. online — without the headache.",
+hero_desc:"From company incorporation to company secretary, accounting and tax support. Simple steps, human guidance and a process built for Malaysian SMEs.",
+hero_primary:"Start My Company",hero_secondary:"WhatsApp Us",h1:"100% online friendly",h2:"Malaysia-focused",h3:"EN · 中文 · BM",
+check_title:"Check your company name",online_badge:"FREE CHECK",tab_new:"New Company",tab_existing:"Existing Company",check_btn:"Check",
+check_note:"Demo checker only. Final company-name approval is subject to SSM.",proof1_big:"Fast",proof1_small:"digital onboarding",proof2_small:"easy local support",
+trust_title:"Built for modern Malaysian businesses",price_eyebrow:"Simple starting point",price_title:"Everything you need to get your Sdn. Bhd. moving.",
+price_desc:"Clear scope, practical support and fewer surprises. Pricing below is demo content and can be replaced with your final package.",
+demo_price:"DEMO PACKAGE",package_title:"Sdn. Bhd. Starter",one_time:"demo",package_desc:"A straightforward incorporation package for Malaysian founders who want to get started without unnecessary complexity.",package_cta:"Start My Business",
+pf1_t:"Name & incorporation guidance",pf1_d:"Guided information and document preparation.",pf2_t:"Malaysia company setup",pf2_d:"Designed around local Sdn. Bhd. requirements.",pf3_t:"Digital-first process",pf3_d:"Keep paperwork and follow-up simpler.",pf4_t:"Responsive support",pf4_d:"Easy follow-up through familiar channels.",
+why_eyebrow:"Why founders choose us",why_title:"Corporate services that feel more like a modern product.",
+b1_t:"100% Online Friendly",b1_d:"Handle onboarding and most follow-up remotely without unnecessary trips or paperwork.",b2_t:"WhatsApp Support",b2_d:"Ask questions through a channel Malaysian founders already use every day.",b3_t:"Digital Documents",b3_d:"Keep the process clear and minimise printing, scanning and manual follow-up.",b4_t:"Malaysia Context",b4_d:"Sdn. Bhd., SSM terminology and local SME needs are part of the experience from day one.",
+process_eyebrow:"3 easy steps",process_title:"From idea to registered company — made simpler.",s1_t:"Tell us about your business",s1_d:"Fill in your proposed company name, business activity, director and shareholder details.",s2_t:"Review & complete documents",s2_d:"We guide the documents and information needed so you always know what comes next.",s3_t:"We handle the submission",s3_d:"Your incorporation proceeds through the relevant Malaysian registration process, with updates along the way.",
+services_eyebrow:"One place, more support",services_title:"Start the company. Then keep it running properly.",
+svc1_t:"Register Sdn. Bhd.",svc1_d:"A guided incorporation flow for founders starting a Malaysian private limited company.",svc1_a:"Company information guidance",svc1_b:"Document preparation support",svc1_c:"Digital-first onboarding",
+svc2_t:"Company Secretary",svc2_d:"Ongoing secretarial support for company records, recurring compliance and corporate actions.",svc2_a:"Statutory records",svc2_b:"Resolutions & filings",svc2_c:"Ongoing compliance support",
+svc3_t:"Accounting & Tax",svc3_d:"Practical finance support so you can spend less time on admin and more time growing the business.",svc3_a:"Bookkeeping support",svc3_b:"Financial reporting",svc3_c:"Tax-related administration",
+local_title:"Local support, in the languages you actually use.",local_desc:"English · 中文 · Bahasa Malaysia · WhatsApp-friendly",local_cta:"Talk to Us",
+faq_title:"Common questions before you start.",fq1:"Can I register a Sdn. Bhd. online?",fa1:"The service is designed around a digital-first workflow, with most onboarding, communication and document follow-up handled remotely where suitable.",
+fq2:"Is the company-name checker connected to SSM?",fa2:"Not in this demo. The checker is a front-end demonstration only. Final company-name availability and approval must follow the official SSM process.",
+fq3:"Can you support my company after incorporation?",fa3:"Yes. The proposed service model includes ongoing company-secretarial, accounting and tax-related support.",
+cta_eyebrow:"Start your business with syw.adv",cta_title:"Ready to turn the business idea into a Sdn. Bhd.?",cta_desc:"Send us a message and we’ll guide you through what you need to prepare next.",cta_whatsapp:"WhatsApp Us",
+footer_desc:"Modern company incorporation, company secretary, accounting and tax support for Malaysian businesses."
+},
+zh:{
+nav_services:"服务",nav_pricing:"配套",nav_process:"流程",nav_cta:"开始咨询",
+micro:"为 Malaysia founder 而做",hero_title:"线上成立 Sdn. Bhd.，不需要搞到那么复杂。",
+hero_desc:"从公司注册、公司秘书到会计与税务支持。流程简单、有人协助，而且是按照马来西亚 SME 的实际需要来设计。",
+hero_primary:"我要注册公司",hero_secondary:"WhatsApp 我们",h1:"适合线上处理",h2:"专注 Malaysia",h3:"EN · 中文 · BM",
+check_title:"先查你的公司名称",online_badge:"免费查询",tab_new:"新公司",tab_existing:"现有公司",check_btn:"查询",
+check_note:"目前为 Demo 查询功能。最终公司名称是否可用仍以 SSM 审批为准。",proof1_big:"更快",proof1_small:"digital onboarding",proof2_small:"本地化沟通支持",
+trust_title:"为现代 Malaysia business 而做",price_eyebrow:"简单开始",price_title:"成立 Sdn. Bhd. 需要的基本东西，一次讲清楚。",
+price_desc:"范围清楚、有人协助、少一点 surprise。以下价格只是 Demo，可换成你的正式 package。",
+demo_price:"DEMO 配套",package_title:"Sdn. Bhd. Starter",one_time:"示范价",package_desc:"适合想简单开始的 Malaysia founder，不把 incorporation 搞成一大堆繁琐手续。",package_cta:"开始我的公司",
+pf1_t:"公司名称与注册指引",pf1_d:"协助整理资料与需要准备的文件。",pf2_t:"Malaysia 公司结构",pf2_d:"围绕本地 Sdn. Bhd. 流程设计。",pf3_t:"Digital-first 流程",pf3_d:"减少 paperwork 和来回 follow-up。",pf4_t:"快速沟通",pf4_d:"用大家熟悉的方式保持联系。",
+why_eyebrow:"为什么 founder 会喜欢",why_title:"Corporate service，也可以有现代产品的体验。",
+b1_t:"线上处理更方便",b1_d:"大部分 onboarding 和 follow-up 都可以 remote 进行，不需要为了 paperwork 一直跑来跑去。",b2_t:"WhatsApp Support",b2_d:"用 Malaysia founder 每天都在用的沟通方式直接问问题。",b3_t:"Digital Documents",b3_d:"减少打印、扫描和重复的人工作业。",b4_t:"Malaysia Context",b4_d:"Sdn. Bhd.、SSM 术语和本地 SME 需求从第一天就纳入流程。",
+process_eyebrow:"3 个简单步骤",process_title:"从 business idea 到正式公司，可以简单很多。",s1_t:"告诉我们你的 business",s1_d:"填写拟用公司名称、业务活动、董事与股东资料。",s2_t:"确认并完成文件",s2_d:"我们会告诉你需要什么资料、下一步做什么。",s3_t:"我们处理提交",s3_d:"按照 Malaysia 相关注册流程推进，并在过程中提供进度更新。",
+services_eyebrow:"一个地方，继续支持",services_title:"公司注册好以后，也要继续好好经营。",
+svc1_t:"注册 Sdn. Bhd.",svc1_d:"为成立 Malaysia private limited company 的 founder 提供清楚的注册流程。",svc1_a:"公司资料指引",svc1_b:"文件准备支持",svc1_c:"Digital-first onboarding",
+svc2_t:"公司秘书",svc2_d:"处理公司记录、持续合规与 corporate action 的公司秘书支持。",svc2_a:"Statutory records",svc2_b:"Resolution 与申报",svc2_c:"持续合规支持",
+svc3_t:"会计与税务",svc3_d:"把财务行政处理好，让你少花时间在 admin，多一点时间发展 business。",svc3_a:"Bookkeeping 支持",svc3_b:"财务报告",svc3_c:"税务行政支持",
+local_title:"用你真正习惯的语言沟通。",local_desc:"English · 中文 · Bahasa Malaysia · WhatsApp-friendly",local_cta:"联系我们",
+faq_title:"开始之前，大家最常问这些。",fq1:"Sdn. Bhd. 可以线上注册吗？",fa1:"整体服务会以 digital-first 为主，在合适情况下，大部分 onboarding、沟通和文件 follow-up 都可远程处理。",
+fq2:"这个公司名称查询有直接连接 SSM 吗？",fa2:"这个 Demo 目前没有。查询功能只是前端示范，最终名称是否可用和获批仍需经过正式 SSM 流程。",
+fq3:"公司成立后还能继续帮忙吗？",fa3:"可以。服务规划包括后续公司秘书、会计和税务相关支持。",
+cta_eyebrow:"和 syw.adv 开始你的 business",cta_title:"准备把 business idea 变成 Sdn. Bhd. 了吗？",cta_desc:"发个信息给我们，我们会告诉你下一步需要准备什么。",cta_whatsapp:"WhatsApp 我们",
+footer_desc:"为 Malaysia business 提供现代化公司注册、公司秘书、会计与税务支持。"
+},
+bm:{
+nav_services:"Perkhidmatan",nav_pricing:"Harga",nav_process:"Cara Ia Berfungsi",nav_cta:"Mula",
+micro:"Untuk founder Malaysia",hero_title:"Mulakan Sdn. Bhd. secara online — tanpa pening kepala.",
+hero_desc:"Daripada penubuhan syarikat hingga setiausaha syarikat, perakaunan dan cukai. Langkah mudah, bantuan manusia dan proses untuk SME Malaysia.",
+hero_primary:"Mulakan Syarikat Saya",hero_secondary:"WhatsApp Kami",h1:"Mesra online",h2:"Fokus Malaysia",h3:"EN · 中文 · BM",
+check_title:"Semak nama syarikat anda",online_badge:"SEMAKAN PERCUMA",tab_new:"Syarikat Baru",tab_existing:"Syarikat Sedia Ada",check_btn:"Semak",
+check_note:"Semakan demo sahaja. Kelulusan akhir nama syarikat tertakluk kepada SSM.",proof1_big:"Pantas",proof1_small:"onboarding digital",proof2_small:"sokongan tempatan mudah",
+trust_title:"Untuk perniagaan Malaysia moden",price_eyebrow:"Permulaan yang mudah",price_title:"Semua yang anda perlukan untuk mula gerakkan Sdn. Bhd.",
+price_desc:"Skop jelas, bantuan praktikal dan kurang kejutan. Harga di bawah ialah kandungan demo dan boleh diganti dengan pakej akhir.",
+demo_price:"PAKEJ DEMO",package_title:"Sdn. Bhd. Starter",one_time:"demo",package_desc:"Pakej penubuhan yang mudah untuk founder Malaysia yang mahu bermula tanpa kerumitan yang tidak perlu.",package_cta:"Mulakan Perniagaan Saya",
+pf1_t:"Panduan nama & penubuhan",pf1_d:"Panduan maklumat dan penyediaan dokumen.",pf2_t:"Penubuhan syarikat Malaysia",pf2_d:"Direka mengikut keperluan Sdn. Bhd. tempatan.",pf3_t:"Proses digital-first",pf3_d:"Kurangkan paperwork dan follow-up.",pf4_t:"Sokongan responsif",pf4_d:"Mudah follow-up melalui saluran yang familiar.",
+why_eyebrow:"Kenapa founder pilih kami",why_title:"Perkhidmatan korporat yang terasa seperti produk moden.",
+b1_t:"Mesra 100% Online",b1_d:"Urus onboarding dan kebanyakan susulan dari jauh tanpa perjalanan atau paperwork yang tidak perlu.",b2_t:"Sokongan WhatsApp",b2_d:"Tanya soalan melalui saluran yang founder Malaysia gunakan setiap hari.",b3_t:"Dokumen Digital",b3_d:"Kurangkan printing, scanning dan susulan manual.",b4_t:"Konteks Malaysia",b4_d:"Sdn. Bhd., istilah SSM dan keperluan SME tempatan dimasukkan sejak hari pertama.",
+process_eyebrow:"3 langkah mudah",process_title:"Daripada idea kepada syarikat berdaftar — dibuat lebih mudah.",s1_t:"Beritahu tentang bisnes anda",s1_d:"Isi nama syarikat, aktiviti perniagaan, maklumat pengarah dan pemegang saham.",s2_t:"Semak & lengkapkan dokumen",s2_d:"Kami pandu maklumat dan dokumen yang diperlukan supaya anda tahu langkah seterusnya.",s3_t:"Kami urus penghantaran",s3_d:"Proses penubuhan diteruskan melalui pendaftaran Malaysia yang berkaitan dengan kemas kini sepanjang proses.",
+services_eyebrow:"Satu tempat, lebih banyak sokongan",services_title:"Mulakan syarikat. Kemudian pastikan ia terus berjalan dengan betul.",
+svc1_t:"Daftar Sdn. Bhd.",svc1_d:"Aliran penubuhan berpandu untuk founder yang memulakan syarikat sendirian berhad Malaysia.",svc1_a:"Panduan maklumat syarikat",svc1_b:"Sokongan penyediaan dokumen",svc1_c:"Onboarding digital-first",
+svc2_t:"Setiausaha Syarikat",svc2_d:"Sokongan berterusan untuk rekod syarikat, pematuhan dan tindakan korporat.",svc2_a:"Rekod statutori",svc2_b:"Resolusi & pemfailan",svc2_c:"Sokongan pematuhan",
+svc3_t:"Perakaunan & Cukai",svc3_d:"Sokongan kewangan praktikal supaya anda kurang masa untuk admin dan lebih masa untuk berkembang.",svc3_a:"Sokongan bookkeeping",svc3_b:"Pelaporan kewangan",svc3_c:"Pentadbiran cukai",
+local_title:"Sokongan tempatan dalam bahasa yang anda guna.",local_desc:"English · 中文 · Bahasa Malaysia · WhatsApp-friendly",local_cta:"Hubungi Kami",
+faq_title:"Soalan biasa sebelum bermula.",fq1:"Boleh daftar Sdn. Bhd. secara online?",fa1:"Perkhidmatan direka secara digital-first, dengan kebanyakan onboarding, komunikasi dan susulan dokumen dibuat dari jauh jika sesuai.",
+fq2:"Adakah semakan nama ini disambungkan terus ke SSM?",fa2:"Tidak untuk demo ini. Semakan ini hanya demonstrasi front-end. Ketersediaan dan kelulusan nama akhir mesti melalui proses rasmi SSM.",
+fq3:"Boleh terus sokong selepas syarikat ditubuhkan?",fa3:"Ya. Model perkhidmatan yang dicadangkan termasuk sokongan setiausaha syarikat, perakaunan dan cukai berterusan.",
+cta_eyebrow:"Mulakan bisnes dengan syw.adv",cta_title:"Bersedia jadikan idea bisnes anda sebuah Sdn. Bhd.?",cta_desc:"Hantar mesej dan kami akan pandu apa yang perlu anda sediakan seterusnya.",cta_whatsapp:"WhatsApp Kami",
+footer_desc:"Penubuhan syarikat, setiausaha syarikat, perakaunan dan cukai moden untuk perniagaan Malaysia."
+}
+};
+
+function setLang(lang){
+  document.documentElement.lang=lang==="zh"?"zh-Hans":lang;
+  document.querySelectorAll("[data-i18n]").forEach(el=>{
+    const key=el.dataset.i18n;
+    if(dict[lang][key]) el.textContent=dict[lang][key];
+  });
+}
+let currentLang="en";
+const langMenu=document.getElementById("langMenu");
+const langTrigger=document.getElementById("langTrigger");
+const langLabel=document.getElementById("langLabel");
+const langOptions=document.getElementById("langOptions");
+
+langTrigger.addEventListener("click",()=>{
+  const isOpen=langMenu.classList.toggle("open");
+  langTrigger.setAttribute("aria-expanded",String(isOpen));
+});
+
+langOptions.querySelectorAll("[data-lang]").forEach(btn=>{
+  btn.addEventListener("click",()=>{
+    currentLang=btn.dataset.lang;
+    langLabel.textContent=currentLang==="zh"?"中文":currentLang==="bm"?"BM":"EN";
+    setLang(currentLang);
+    langMenu.classList.remove("open");
+    langTrigger.setAttribute("aria-expanded","false");
+  });
+});
+
+document.addEventListener("click",e=>{
+  if(!langMenu.contains(e.target)){
+    langMenu.classList.remove("open");
+    langTrigger.setAttribute("aria-expanded","false");
+  }
+});
+
+document.getElementById("checkBtn").addEventListener("click",()=>{
+  const val=document.getElementById("companyInput").value.trim();
+  const result=document.getElementById("result");
+  const lang=currentLang;
+  if(!val){
+    result.style.display="block";
+    result.textContent=lang==="zh"?"先输入一个公司名称。":lang==="bm"?"Masukkan nama syarikat dahulu.":"Enter a company name first.";
+    return;
+  }
+  result.style.display="block";
+  result.textContent=lang==="zh"
+    ? `“${val}” 已收到。Demo 显示：可能可用，但最终仍需 SSM 审批。`
+    :lang==="bm"
+    ? `“${val}” diterima. Demo: mungkin tersedia, tertakluk kepada kelulusan akhir SSM.`
+    :`“${val}” received. Demo result: potentially available, subject to final SSM approval.`;
+});
+</script>
+</body>
+</html>
