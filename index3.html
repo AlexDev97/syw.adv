@@ -1,0 +1,616 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>syw.adv — Start Your Sdn. Bhd.</title>
+<meta name="description" content="Modern Malaysian company incorporation, company secretary, accounting and tax support for founders and SMEs." />
+<style>
+:root{
+  --navy:#0d3158;
+  --navy-2:#082743;
+  --navy-3:#123f6e;
+  --amber:#f6b739;
+  --amber-2:#ffca56;
+  --cream:#fbf7ef;
+  --paper:#fffdf8;
+  --ink:#0f2b4d;
+  --muted:#657386;
+  --line:#e4e2dc;
+  --soft-blue:#edf4f8;
+  --white:#fff;
+  --shadow:0 20px 60px rgba(13,49,88,.12);
+  --max:1180px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  color:var(--ink);
+  background:var(--cream);
+  line-height:1.5;
+}
+a{text-decoration:none;color:inherit}
+button,input,select{font:inherit}
+img{max-width:100%}
+.wrap{width:min(calc(100% - 40px),var(--max));margin:auto}
+
+/* Header */
+header{
+  position:sticky;top:0;z-index:50;
+  padding:18px 0 0;
+  background:linear-gradient(to bottom,rgba(251,247,239,.96),rgba(251,247,239,.72),transparent);
+  backdrop-filter:blur(10px);
+}
+.nav{
+  min-height:58px;
+  display:flex;align-items:center;justify-content:space-between;gap:20px;
+  padding:0 24px;
+  background:rgba(255,255,255,.96);
+  border:1px solid rgba(13,49,88,.08);
+  border-radius:12px;
+  box-shadow:0 8px 22px rgba(13,49,88,.07);
+}
+.brand{font-size:27px;font-weight:900;letter-spacing:-.055em;color:var(--navy)}
+.brand .dot{color:var(--amber)}
+.nav-links{display:flex;gap:28px;font-size:14px;font-weight:700}
+.nav-links a{color:#16365f}
+.nav-links a:hover{color:var(--amber)}
+.nav-actions{display:flex;align-items:center;gap:16px}
+.lang-group{display:flex;gap:8px;font-size:13px;color:#506176}
+.lang-group button{
+  border:0;background:none;padding:0;cursor:pointer;font-weight:700;color:inherit
+}
+.lang-group button.active{color:var(--navy)}
+.cta{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  border:0;border-radius:999px;padding:13px 22px;font-weight:850;
+  cursor:pointer;transition:.2s ease
+}
+.cta:hover{transform:translateY(-1px)}
+.cta.amber{background:var(--amber);color:#1d2b36;box-shadow:0 10px 24px rgba(246,183,57,.24)}
+.cta.navy{background:var(--navy);color:#fff}
+.cta.outline{border:1px solid rgba(255,255,255,.5);color:#fff;background:transparent}
+
+/* Hero */
+.hero{
+  margin-top:-76px;
+  padding:150px 0 0;
+  background:
+    linear-gradient(90deg,rgba(7,38,68,.99) 0%,rgba(7,38,68,.97) 43%,rgba(7,38,68,.72) 58%,rgba(7,38,68,.15) 100%),
+    radial-gradient(circle at 82% 35%, rgba(246,183,57,.22), transparent 26%),
+    linear-gradient(135deg,#163e67,#0b2a4c 60%,#1a4b76);
+  color:#fff;
+  overflow:hidden;
+}
+.hero-inner{
+  min-height:500px;
+  display:grid;grid-template-columns:1.05fr .95fr;gap:50px;align-items:center;
+  position:relative;
+}
+.hero-copy{padding:28px 0 52px}
+.kicker{
+  color:var(--amber);
+  font-size:12px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;
+}
+h1{
+  margin:16px 0 16px;
+  font-size:clamp(54px,6.8vw,86px);
+  line-height:.94;letter-spacing:-.065em;
+  color:#fff;
+}
+h1 .accent{color:var(--amber)}
+.hero-copy>p{
+  max-width:650px;
+  margin:0 0 28px;
+  color:#e5edf5;font-size:18px;
+}
+.hero-points{display:flex;gap:30px;flex-wrap:wrap;margin-top:24px}
+.hero-point{display:flex;gap:10px;align-items:flex-start}
+.hero-icon{
+  width:36px;height:36px;border:2px solid rgba(255,255,255,.9);border-radius:12px;
+  display:grid;place-items:center;font-size:16px;flex:none
+}
+.hero-point strong{display:block;font-size:14px}
+.hero-point span{display:block;color:#bdc9d5;font-size:11px;margin-top:2px}
+
+.hero-side{
+  min-height:500px;
+  position:relative;
+  display:flex;align-items:center;justify-content:flex-start;
+}
+.skyline{
+  position:absolute;inset:0 -160px 0 120px;
+  background:
+    linear-gradient(to top,rgba(3,24,42,.55),transparent 35%),
+    radial-gradient(circle at 50% 26%, rgba(255,191,89,.35), transparent 27%),
+    linear-gradient(180deg,#315a83 0%,#744b4b 52%,#142d46 100%);
+  opacity:.94;
+}
+.city-shapes{position:absolute;inset:0;overflow:hidden}
+.city-shapes span{
+  position:absolute;bottom:0;background:linear-gradient(#183c62,#0d2741);
+  border:1px solid rgba(255,255,255,.07)
+}
+.city-shapes span:before{
+  content:"";position:absolute;inset:8px 6px;
+  background:repeating-linear-gradient(to bottom,rgba(246,183,57,.75) 0 3px,transparent 3px 10px);
+  opacity:.35
+}
+.city-shapes .b1{left:20%;width:52px;height:210px}
+.city-shapes .b2{left:35%;width:68px;height:290px}
+.city-shapes .b3{left:53%;width:44px;height:240px}
+.city-shapes .b4{left:66%;width:72px;height:180px}
+.city-shapes .tower1,.city-shapes .tower2{
+  width:28px;height:330px;background:linear-gradient(#c9d1d8,#39506c);bottom:0;z-index:2
+}
+.city-shapes .tower1{left:44%}.city-shapes .tower2{left:49%}
+.city-shapes .tower1:after,.city-shapes .tower2:after{
+  content:"";position:absolute;left:50%;transform:translateX(-50%);top:-68px;
+  border-left:6px solid transparent;border-right:6px solid transparent;border-bottom:68px solid #d3d8dc
+}
+.check-card{
+  position:relative;z-index:4;
+  width:min(100%,400px);
+  margin-left:-10px;
+  background:#fff;color:var(--ink);
+  border-radius:20px;padding:26px;
+  box-shadow:var(--shadow);
+}
+.check-card h3{margin:0;font-size:25px;letter-spacing:-.04em}
+.check-card p{margin:6px 0 16px;font-size:13px;color:var(--muted)}
+.check-input{display:flex;gap:8px}
+.check-input input{
+  flex:1;min-width:0;padding:14px;border:1px solid #dfe5ea;border-radius:12px;outline:none
+}
+.check-input button{
+  width:52px;border:0;border-radius:12px;background:var(--amber);cursor:pointer;font-size:19px
+}
+.check-help{font-size:11px!important;color:#17406b!important;font-weight:800!important;margin-top:12px!important}
+.check-result{
+  display:none;margin-top:12px;padding:10px 12px;border-radius:10px;
+  background:#f4faf7;color:#1b6b4e;border:1px solid #c8e5d7;font-size:12px;font-weight:700;
+}
+.script{
+  position:absolute;right:18px;bottom:28px;z-index:3;
+  color:#fff;font-family:"Segoe Script","Bradley Hand",cursive;
+  font-size:27px;line-height:1.15;transform:rotate(-5deg);text-align:right;
+  text-shadow:0 2px 14px rgba(0,0,0,.25)
+}
+.script:after{content:"";display:block;width:70px;height:4px;background:var(--amber);margin:8px 0 0 auto;border-radius:4px}
+
+/* Main content */
+.content{background:var(--cream)}
+.section{padding:44px 0}
+.section + .section{padding-top:24px}
+.section-title-row{
+  display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:18px
+}
+h2{
+  margin:0;color:var(--navy);font-size:28px;letter-spacing:-.04em
+}
+.small-link{font-size:12px;font-weight:800;color:#174a7c}
+.two-col{
+  display:grid;grid-template-columns:1fr 1fr;gap:24px;
+  padding:32px 0;border-bottom:1px solid var(--line)
+}
+.panel{min-width:0}
+
+/* Pricing */
+.packages{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.package{
+  background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px;
+  min-height:210px;position:relative
+}
+.package.popular{border:2px solid var(--amber)}
+.badge{
+  position:absolute;right:10px;top:10px;
+  background:var(--amber);padding:5px 10px;border-radius:999px;font-size:10px;font-weight:900
+}
+.package h3{margin:2px 0 2px;font-size:18px;color:var(--navy)}
+.price{font-size:27px;font-weight:900;color:var(--navy);letter-spacing:-.04em}
+.package small{color:var(--muted)}
+.package hr{border:0;border-top:1px solid #edf0f2;margin:15px 0}
+.package ul{margin:0;padding:0;list-style:none;display:grid;gap:7px;font-size:12px;color:#3f5064}
+.package li:before{content:"✓";color:#f0a800;font-weight:900;margin-right:8px}
+
+/* Why us */
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.why-card{
+  background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px;
+  display:flex;gap:14px;min-height:92px
+}
+.why-ico{
+  width:44px;height:44px;border-radius:50%;background:var(--soft-blue);
+  display:grid;place-items:center;flex:none;font-size:18px
+}
+.why-card strong{display:block;color:var(--navy);font-size:14px}
+.why-card p{margin:3px 0 0;font-size:12px;color:var(--muted)}
+
+/* How it works + services */
+.lower-grid{
+  display:grid;grid-template-columns:.95fr 1.05fr;gap:28px;
+  padding:30px 0 10px
+}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.step{display:flex;gap:10px;align-items:flex-start}
+.step-num{
+  width:44px;height:44px;border-radius:50%;background:var(--navy);color:#fff;
+  display:grid;place-items:center;font-weight:900;flex:none
+}
+.step strong{display:block;font-size:13px;color:var(--navy)}
+.step span{display:block;font-size:11px;color:var(--muted);margin-top:3px}
+.service-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.service-card{
+  background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px;min-height:112px
+}
+.service-card .sico{
+  width:38px;height:38px;border-radius:12px;background:var(--soft-blue);
+  display:grid;place-items:center;margin-bottom:10px
+}
+.service-card strong{font-size:12px;color:var(--navy);line-height:1.2;display:block}
+
+/* CTA */
+.bottom-cta{
+  margin:28px auto 18px;
+  padding:30px 40px;
+  border-radius:16px;
+  background:linear-gradient(120deg,var(--navy),var(--navy-2));
+  color:#fff;
+  display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:center;
+  position:relative;overflow:hidden
+}
+.bottom-cta:before{
+  content:"";position:absolute;left:33%;bottom:-120px;width:320px;height:240px;
+  border-radius:50%;background:rgba(255,255,255,.06)
+}
+.bottom-cta .kicker{margin-bottom:7px}
+.bottom-cta h3{margin:0;font-size:38px;letter-spacing:-.05em}
+.bottom-cta h3 span{color:var(--amber)}
+.bottom-cta p{margin:4px 0 0;color:#c8d3df;font-size:13px}
+.cta-stack{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}
+.cta-stack .cta{min-width:170px}
+.micro-trust{display:flex;gap:16px;justify-content:flex-end;margin-top:12px;font-size:10px;color:#c8d3df}
+
+/* Footer */
+footer{padding:0 0 36px}
+.footer-row{
+  display:flex;justify-content:space-between;gap:30px;align-items:center;
+  padding-top:16px;border-top:1px solid var(--line);font-size:12px;color:#6d7886
+}
+.footer-left{display:flex;align-items:center;gap:14px}
+.footer-left .brand{font-size:24px}
+.footer-links{display:flex;gap:18px;flex-wrap:wrap}
+
+@media(max-width:980px){
+  .nav-links{display:none}
+  .hero-inner{grid-template-columns:1fr}
+  .hero-side{min-height:380px}
+  .check-card{margin-left:0}
+  .two-col,.lower-grid,.bottom-cta{grid-template-columns:1fr}
+  .packages,.steps{grid-template-columns:1fr}
+  .service-cards{grid-template-columns:1fr 1fr}
+  .cta-stack,.micro-trust{justify-content:flex-start}
+}
+@media(max-width:680px){
+  .wrap{width:min(calc(100% - 24px),var(--max))}
+  header{padding-top:10px}
+  .nav{padding:0 14px}
+  .nav-actions .cta{display:none}
+  .lang-group{font-size:12px}
+  .hero{padding-top:132px}
+  h1{font-size:48px}
+  .hero-copy>p{font-size:16px}
+  .hero-points{display:grid;grid-template-columns:1fr}
+  .hero-side{min-height:360px}
+  .skyline{inset:0 -120px 0 0}
+  .script{font-size:20px;right:8px}
+  .check-card{padding:20px}
+  .two-col{padding:24px 0}
+  .why-grid{grid-template-columns:1fr}
+  .service-cards{grid-template-columns:1fr}
+  .bottom-cta{padding:28px 22px}
+  .bottom-cta h3{font-size:31px}
+  .footer-row{align-items:flex-start;flex-direction:column}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#">syw<span class="dot">.</span>adv</a>
+    <nav class="nav-links">
+      <a href="#services" data-i18n="nav_services">Services</a>
+      <a href="#pricing" data-i18n="nav_pricing">Pricing</a>
+      <a href="#resources" data-i18n="nav_resources">Resources</a>
+      <a href="#about" data-i18n="nav_about">About</a>
+    </nav>
+    <div class="nav-actions">
+      <div class="lang-group">
+        <button class="active" data-lang="en">EN</button><span>|</span>
+        <button data-lang="zh">中文</button><span>|</span>
+        <button data-lang="bm">BM</button>
+      </div>
+      <a class="cta amber" href="#contact"><span data-i18n="nav_cta">Start Your Sdn. Bhd.</span> →</a>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="wrap hero-inner">
+    <div class="hero-copy">
+      <div class="kicker" data-i18n="hero_kicker">Malaysia Company Incorporation</div>
+      <h1 data-i18n-html="hero_title">Start Your Sdn. Bhd.<br/>Online, <span class="accent">Hassle-Free.</span></h1>
+      <p data-i18n="hero_desc">From name search to SSM registration, we make it simple for Malaysian founders and SMEs to build bigger, faster.</p>
+
+      <div class="hero-points">
+        <div class="hero-point">
+          <div class="hero-icon">▣</div>
+          <div><strong data-i18n="point1_t">100% Online</strong><span data-i18n="point1_d">Complete from anywhere</span></div>
+        </div>
+        <div class="hero-point">
+          <div class="hero-icon">◇</div>
+          <div><strong data-i18n="point2_t">SSM Compliant</strong><span data-i18n="point2_d">Fully compliant & secure</span></div>
+        </div>
+        <div class="hero-point">
+          <div class="hero-icon">◎</div>
+          <div><strong data-i18n="point3_t">Local Support</strong><span data-i18n="point3_d">Real people, real advice</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-side">
+      <div class="skyline"></div>
+      <div class="city-shapes">
+        <span class="b1"></span><span class="b2"></span><span class="b3"></span><span class="b4"></span>
+        <span class="tower1"></span><span class="tower2"></span>
+      </div>
+
+      <div class="check-card">
+        <h3 data-i18n="check_title">Check Your Company Name</h3>
+        <p data-i18n="check_desc">See if your preferred name is available with SSM.</p>
+        <div class="check-input">
+          <input id="companyName" type="text" placeholder="Enter company name (e.g. Nova Tech)">
+          <button id="checkBtn" aria-label="Check company name">⌕</button>
+        </div>
+        <p class="check-help" data-i18n="check_help">Need help choosing a name? →</p>
+        <div class="check-result" id="checkResult"></div>
+      </div>
+
+      <div class="script" data-i18n-html="script">Built<br/>for Malaysian<br/>founders,<br/>what’s next.</div>
+    </div>
+  </div>
+</section>
+
+<div class="content">
+  <div class="wrap">
+
+    <section class="two-col" id="pricing">
+      <div class="panel">
+        <div class="section-title-row">
+          <h2 data-i18n="packages_title">Popular Packages</h2>
+          <a class="small-link" href="#" data-i18n="view_packages">View all packages →</a>
+        </div>
+        <div class="packages">
+          <article class="package">
+            <h3>Starter</h3>
+            <div class="price">RM 1,199</div>
+            <small data-i18n="starter_sub">For new founders</small>
+            <hr/>
+            <ul>
+              <li data-i18n="starter_1">Company incorporation</li>
+              <li data-i18n="starter_2">SSM registration</li>
+              <li data-i18n="starter_3">Basic compliance guide</li>
+            </ul>
+          </article>
+          <article class="package popular">
+            <span class="badge" data-i18n="most_popular">Most Popular</span>
+            <h3>Growth</h3>
+            <div class="price">RM 1,699</div>
+            <small data-i18n="growth_sub">For growing teams</small>
+            <hr/>
+            <ul>
+              <li data-i18n="growth_1">Everything in Starter</li>
+              <li data-i18n="growth_2">Business bank intro</li>
+              <li data-i18n="growth_3">1 year secretary service</li>
+            </ul>
+          </article>
+          <article class="package">
+            <h3>Business</h3>
+            <div class="price">RM 2,499</div>
+            <small data-i18n="business_sub">For established businesses</small>
+            <hr/>
+            <ul>
+              <li data-i18n="business_1">Everything in Growth</li>
+              <li data-i18n="business_2">Accounting setup</li>
+              <li data-i18n="business_3">Tax advisory session</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="section-title-row">
+          <h2 data-i18n="why_title">Why Founders Choose syw.adv</h2>
+        </div>
+        <div class="why-grid">
+          <div class="why-card">
+            <div class="why-ico">◇</div>
+            <div><strong data-i18n="why1_t">Transparent Pricing</strong><p data-i18n="why1_d">No hidden fees. What you see is what you pay.</p></div>
+          </div>
+          <div class="why-card">
+            <div class="why-ico">ϟ</div>
+            <div><strong data-i18n="why2_t">Fast & Reliable Process</strong><p data-i18n="why2_d">Get your business up and running without the wait.</p></div>
+          </div>
+          <div class="why-card">
+            <div class="why-ico">◎</div>
+            <div><strong data-i18n="why3_t">Local Experts Who Care</strong><p data-i18n="why3_d">A Malaysian team that understands your journey.</p></div>
+          </div>
+          <div class="why-card">
+            <div class="why-ico">♡</div>
+            <div><strong data-i18n="why4_t">Ongoing Support</strong><p data-i18n="why4_d">From incorporation to growth, we’re with you.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="lower-grid" id="services">
+      <div>
+        <div class="section-title-row"><h2 data-i18n="how_title">How It Works</h2></div>
+        <div class="steps">
+          <div class="step">
+            <div class="step-num">1</div>
+            <div><strong data-i18n="step1_t">Check Name</strong><span data-i18n="step1_d">Search availability in real time</span></div>
+          </div>
+          <div class="step">
+            <div class="step-num">2</div>
+            <div><strong data-i18n="step2_t">Submit Details</strong><span data-i18n="step2_d">We handle the paperwork</span></div>
+          </div>
+          <div class="step">
+            <div class="step-num">3</div>
+            <div><strong data-i18n="step3_t">Get Registered</strong><span data-i18n="step3_d">Receive your SSM documents</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="section-title-row">
+          <h2 data-i18n="services_title">Our Services</h2>
+          <a class="small-link" href="#" data-i18n="view_services">View all services →</a>
+        </div>
+        <div class="service-cards">
+          <div class="service-card"><div class="sico">▤</div><strong data-i18n="svc1">Company Incorporation</strong></div>
+          <div class="service-card"><div class="sico">♙</div><strong data-i18n="svc2">Secretary Services</strong></div>
+          <div class="service-card"><div class="sico">▥</div><strong data-i18n="svc3">Accounting & Tax</strong></div>
+          <div class="service-card"><div class="sico">◉</div><strong data-i18n="svc4">Business Advisory</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bottom-cta" id="contact">
+      <div>
+        <div class="kicker" data-i18n="final_kicker">Ready to build your business?</div>
+        <h3 data-i18n-html="final_title">Let’s Make It <span>Happen.</span></h3>
+        <p data-i18n="final_desc">Join Malaysian founders who trust syw.adv to start and grow their business.</p>
+      </div>
+      <div>
+        <div class="cta-stack">
+          <a class="cta amber" href="https://wa.me/60123456789" target="_blank" data-i18n="whatsapp">Chat with Us on WhatsApp →</a>
+          <a class="cta outline" href="mailto:hello@syw.adv"><span data-i18n="email_us">Email Us</span></a>
+        </div>
+        <div class="micro-trust">
+          <span data-i18n="quick">◉ Quick Response</span>
+          <span data-i18n="real">◉ Real People</span>
+          <span data-i18n="no_obligation">◉ No Obligation</span>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-row">
+        <div class="footer-left">
+          <span class="brand">syw<span class="dot">.</span>adv</span>
+          <span data-i18n="footer_desc">Malaysian Corporate Services for Founders & SMEs.</span>
+        </div>
+        <div class="footer-links">
+          <a href="#services" data-i18n="nav_services">Services</a>
+          <a href="#pricing" data-i18n="nav_pricing">Pricing</a>
+          <a href="#resources" data-i18n="nav_resources">Resources</a>
+          <a href="#about" data-i18n="nav_about">About</a>
+          <span>Build Today. A Brighter Tomorrow.</span>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+</div>
+</main>
+
+<script>
+const copy = {
+en:{
+nav_services:"Services",nav_pricing:"Pricing",nav_resources:"Resources",nav_about:"About",nav_cta:"Start Your Sdn. Bhd.",
+hero_kicker:"Malaysia Company Incorporation",
+hero_title:'Start Your Sdn. Bhd.<br/>Online, <span class="accent">Hassle-Free.</span>',
+hero_desc:"From name search to SSM registration, we make it simple for Malaysian founders and SMEs to build bigger, faster.",
+point1_t:"100% Online",point1_d:"Complete from anywhere",point2_t:"SSM Compliant",point2_d:"Fully compliant & secure",point3_t:"Local Support",point3_d:"Real people, real advice",
+check_title:"Check Your Company Name",check_desc:"See if your preferred name is available with SSM.",check_help:"Need help choosing a name? →",
+script:"Built<br/>for Malaysian<br/>founders,<br/>what’s next.",
+packages_title:"Popular Packages",view_packages:"View all packages →",starter_sub:"For new founders",starter_1:"Company incorporation",starter_2:"SSM registration",starter_3:"Basic compliance guide",
+most_popular:"Most Popular",growth_sub:"For growing teams",growth_1:"Everything in Starter",growth_2:"Business bank intro",growth_3:"1 year secretary service",
+business_sub:"For established businesses",business_1:"Everything in Growth",business_2:"Accounting setup",business_3:"Tax advisory session",
+why_title:"Why Founders Choose syw.adv",why1_t:"Transparent Pricing",why1_d:"No hidden fees. What you see is what you pay.",why2_t:"Fast & Reliable Process",why2_d:"Get your business up and running without the wait.",why3_t:"Local Experts Who Care",why3_d:"A Malaysian team that understands your journey.",why4_t:"Ongoing Support",why4_d:"From incorporation to growth, we’re with you.",
+how_title:"How It Works",step1_t:"Check Name",step1_d:"Search availability in real time",step2_t:"Submit Details",step2_d:"We handle the paperwork",step3_t:"Get Registered",step3_d:"Receive your SSM documents",
+services_title:"Our Services",view_services:"View all services →",svc1:"Company Incorporation",svc2:"Secretary Services",svc3:"Accounting & Tax",svc4:"Business Advisory",
+final_kicker:"Ready to build your business?",final_title:'Let’s Make It <span>Happen.</span>',final_desc:"Join Malaysian founders who trust syw.adv to start and grow their business.",whatsapp:"Chat with Us on WhatsApp →",email_us:"Email Us",quick:"◉ Quick Response",real:"◉ Real People",no_obligation:"◉ No Obligation",footer_desc:"Malaysian Corporate Services for Founders & SMEs."
+},
+zh:{
+nav_services:"服务",nav_pricing:"配套",nav_resources:"资源",nav_about:"关于我们",nav_cta:"开始注册 Sdn. Bhd.",
+hero_kicker:"马来西亚公司注册",
+hero_title:'注册你的 Sdn. Bhd.<br/>线上完成，<span class="accent">更省心。</span>',
+hero_desc:"从公司名称查询到 SSM 注册，我们让 Malaysia founder 和 SME 用更简单的方式把公司建立起来。",
+point1_t:"线上处理",point1_d:"大部分流程可远程完成",point2_t:"SSM 合规",point2_d:"按照本地公司流程处理",point3_t:"本地支持",point3_d:"真正的人，实际的协助",
+check_title:"查询公司名称",check_desc:"先看看你想要的公司名称是否可能可用。",check_help:"需要帮忙想公司名称？ →",
+script:"Built<br/>for Malaysia<br/>founders,<br/>what’s next.",
+packages_title:"热门配套",view_packages:"查看全部配套 →",starter_sub:"适合刚开始的 founder",starter_1:"公司注册",starter_2:"SSM 注册",starter_3:"基础合规指南",
+most_popular:"最受欢迎",growth_sub:"适合成长中的团队",growth_1:"包含 Starter 内容",growth_2:"Business bank intro",growth_3:"1 年公司秘书服务",
+business_sub:"适合较成熟企业",business_1:"包含 Growth 内容",business_2:"会计 setup",business_3:"税务咨询",
+why_title:"为什么 Founder 选择 syw.adv",why1_t:"价格透明",why1_d:"减少隐藏费用，先把范围讲清楚。",why2_t:"快速可靠",why2_d:"减少不必要等待，让流程更顺。",why3_t:"本地团队",why3_d:"更了解 Malaysia founder 的实际情况。",why4_t:"长期支持",why4_d:"从 incorporation 到成长阶段都能继续协助。",
+how_title:"流程",step1_t:"查询名称",step1_d:"先检查公司名称",step2_t:"提交资料",step2_d:"我们协助整理 paperwork",step3_t:"完成注册",step3_d:"取得相关公司文件",
+services_title:"我们的服务",view_services:"查看全部服务 →",svc1:"公司注册",svc2:"公司秘书",svc3:"会计与税务",svc4:"商业顾问",
+final_kicker:"准备开始你的 business？",final_title:'一起把它 <span>做起来。</span>',final_desc:"从成立公司到后续成长，让 syw.adv 帮你把企业行政变简单。",whatsapp:"WhatsApp 联系我们 →",email_us:"Email 我们",quick:"◉ 快速回应",real:"◉ 真人沟通",no_obligation:"◉ 无压力咨询",footer_desc:"为 Malaysia Founder 与 SME 提供现代企业服务。"
+},
+bm:{
+nav_services:"Perkhidmatan",nav_pricing:"Harga",nav_resources:"Sumber",nav_about:"Tentang",nav_cta:"Mulakan Sdn. Bhd.",
+hero_kicker:"Penubuhan Syarikat Malaysia",
+hero_title:'Mulakan Sdn. Bhd.<br/>Secara Online, <span class="accent">Lebih Mudah.</span>',
+hero_desc:"Daripada semakan nama hingga pendaftaran SSM, kami mudahkan proses untuk founder dan SME Malaysia.",
+point1_t:"Mesra Online",point1_d:"Lengkapkan dari mana-mana",point2_t:"Patuh SSM",point2_d:"Mengikut keperluan tempatan",point3_t:"Sokongan Tempatan",point3_d:"Orang sebenar, bantuan sebenar",
+check_title:"Semak Nama Syarikat",check_desc:"Lihat sama ada nama pilihan anda mungkin tersedia.",check_help:"Perlukan bantuan pilih nama? →",
+script:"Built<br/>for Malaysian<br/>founders,<br/>what’s next.",
+packages_title:"Pakej Popular",view_packages:"Lihat semua pakej →",starter_sub:"Untuk founder baru",starter_1:"Penubuhan syarikat",starter_2:"Pendaftaran SSM",starter_3:"Panduan pematuhan asas",
+most_popular:"Paling Popular",growth_sub:"Untuk pasukan berkembang",growth_1:"Semua dalam Starter",growth_2:"Pengenalan bank bisnes",growth_3:"1 tahun servis setiausaha",
+business_sub:"Untuk syarikat lebih matang",business_1:"Semua dalam Growth",business_2:"Setup perakaunan",business_3:"Sesi nasihat cukai",
+why_title:"Kenapa Founder Pilih syw.adv",why1_t:"Harga Telus",why1_d:"Kurang caj tersembunyi, skop lebih jelas.",why2_t:"Proses Cepat & Boleh Dipercayai",why2_d:"Kurangkan masa menunggu yang tidak perlu.",why3_t:"Pakar Tempatan",why3_d:"Pasukan Malaysia yang faham perjalanan anda.",why4_t:"Sokongan Berterusan",why4_d:"Daripada incorporation hingga growth, kami bersama anda.",
+how_title:"Cara Ia Berfungsi",step1_t:"Semak Nama",step1_d:"Semak ketersediaan nama",step2_t:"Hantar Maklumat",step2_d:"Kami bantu urus paperwork",step3_t:"Dapatkan Pendaftaran",step3_d:"Terima dokumen syarikat",
+services_title:"Perkhidmatan Kami",view_services:"Lihat semua servis →",svc1:"Penubuhan Syarikat",svc2:"Setiausaha Syarikat",svc3:"Perakaunan & Cukai",svc4:"Nasihat Perniagaan",
+final_kicker:"Bersedia bina bisnes anda?",final_title:'Mari Jadikannya <span>Kenyataan.</span>',final_desc:"Bina syarikat anda dengan sokongan korporat moden untuk founder Malaysia.",whatsapp:"Chat di WhatsApp →",email_us:"Email Kami",quick:"◉ Respon Cepat",real:"◉ Orang Sebenar",no_obligation:"◉ Tiada Komitmen",footer_desc:"Perkhidmatan Korporat Malaysia untuk Founder & SME."
+}
+};
+
+let currentLang="en";
+function applyLang(lang){
+  currentLang=lang;
+  document.documentElement.lang=lang==="zh"?"zh-Hans":lang;
+  document.querySelectorAll("[data-i18n]").forEach(el=>{
+    const key=el.dataset.i18n;
+    if(copy[lang][key]) el.textContent=copy[lang][key];
+  });
+  document.querySelectorAll("[data-i18n-html]").forEach(el=>{
+    const key=el.dataset.i18nHtml;
+    if(copy[lang][key]) el.innerHTML=copy[lang][key];
+  });
+  document.querySelectorAll("[data-lang]").forEach(btn=>btn.classList.toggle("active",btn.dataset.lang===lang));
+}
+document.querySelectorAll("[data-lang]").forEach(btn=>btn.addEventListener("click",()=>applyLang(btn.dataset.lang)));
+
+document.getElementById("checkBtn").addEventListener("click",()=>{
+  const value=document.getElementById("companyName").value.trim();
+  const result=document.getElementById("checkResult");
+  result.style.display="block";
+  if(!value){
+    result.textContent=currentLang==="zh"?"先输入一个公司名称。":currentLang==="bm"?"Masukkan nama syarikat dahulu.":"Please enter a company name first.";
+    return;
+  }
+  result.textContent=currentLang==="zh"
+    ? `“${value}” 已收到。Demo 查询结果：可能可用，最终仍以 SSM 审批为准。`
+    :currentLang==="bm"
+    ? `“${value}” diterima. Keputusan demo: mungkin tersedia, tertakluk kepada kelulusan akhir SSM.`
+    :`“${value}” received. Demo result: potentially available, subject to final SSM approval.`;
+});
+</script>
+</body>
+</html>
